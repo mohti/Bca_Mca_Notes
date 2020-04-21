@@ -8,8 +8,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.bca_mca_notes.R;
+import com.example.bca_mca_notes.flagManeger.Flag_manager_for_inflatemenu;
 import com.example.bca_mca_notes.sem1_fragment.vbnet_fragment_and_sub_5_fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -21,7 +23,38 @@ public class bca_sem_1_fragment_seter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bca_sem_1_fragment_seter);
         BNV=findViewById(R.id.Bottom_navigation);
-       BNV.inflateMenu(R.menu.bca_sem_2_sub);
+        Flag_manager_for_inflatemenu flag_manager_for_inflatemenu= new Flag_manager_for_inflatemenu();
+
+
+        int check_flag_for_inflate_menu=flag_manager_for_inflatemenu.manage_layout_by_sem;
+
+
+        String s=String.valueOf(check_flag_for_inflate_menu);
+        Toast.makeText(bca_sem_1_fragment_seter.this, "Hello  s"+s, Toast.LENGTH_SHORT).show();
+
+        if(check_flag_for_inflate_menu==1){
+          BNV.inflateMenu(R.menu.subject_menu);
+        }
+        else if(check_flag_for_inflate_menu==2){
+            BNV.inflateMenu(R.menu.bca_sem_2_sub);
+        }
+        else if(check_flag_for_inflate_menu==3){
+            BNV.inflateMenu(R.menu.bca_sem_2_sub);
+
+        }
+        else if(check_flag_for_inflate_menu==4){
+            BNV.inflateMenu(R.menu.bca_sem_2_sub);
+
+        }
+        else if(check_flag_for_inflate_menu==5){
+            BNV.inflateMenu(R.menu.bca_sem_2_sub);
+
+        }
+        else if(check_flag_for_inflate_menu==6){
+            BNV.inflateMenu(R.menu.bca_sem_2_sub);
+
+        }
+
         loadFragment(new vbnet_fragment_and_sub_5_fragment());
         BNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -76,3 +109,9 @@ public class bca_sem_1_fragment_seter extends AppCompatActivity {
 
     }
 
+//
+//       switch (check_flag_for_inflate_menu){
+//           case  1:
+//               BNV.inflateMenu(R.menu.subject_menu);
+//break;
+//       }
